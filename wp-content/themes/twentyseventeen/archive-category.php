@@ -34,9 +34,11 @@ get_header(); ?>
         <?php
         $post_type = 'category';
         $post_custom_field = 'description';
+        $loop_counter = 1;
         //Unlimited count of categories
         $posts_per_page = -1;
-        $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page);
+        $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
+                       'orderby' => 'position', 'order'   => 'ASC');
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
         $cover = get_field('cover');
@@ -51,11 +53,14 @@ get_header(); ?>
                     <figcaption>
                         <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
                         <p><?php echo get_field($post_custom_field); ?></p>
-                        <a href="portfolio-single.html">Посмотреть</a>
+                        <a href="<?php the_permalink(); ?>">Посмотреть</a>
                     </figcaption>
                 </figure>
             </div>
             <?php
+            if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
+                echo '<div class="clearfix visible-sm-block"></div>';
+            $loop_counter++;
             endwhile;
             ?>
 
