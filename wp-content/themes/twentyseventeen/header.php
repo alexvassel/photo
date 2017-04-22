@@ -1,53 +1,92 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
-
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js no-svg">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php wp_head(); ?>
+    <?php wp_head(); ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alice Zed | Photographer </title>
+
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
+<body class="index">
 
-	<header id="masthead" class="site-header" role="banner">
+<div id="preloader" class="js-preloader">
+    <div id="status" class="js-status">
+        <div class="status-mes"></div>
+    </div>
+</div>
 
-		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+<section id="home" class="module-image js-height-full">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span></li>
+        <li><span>Image 02</span></li>
+        <li><span>Image 03</span></li>
+        <li><span>Image 04</span></li>
+        <li><span>Image 05</span></li>
+        <li><span>Image 06</span></li>
+    </ul>
+    <!-- <div class="intro">
+        <div class="hello">Привет, меня зовут Катя, и я</div>
+        <h1 class="photograph">Фотограф</h1>
+        <div class="who-creates">Life | Landscapes | Love</div>
+    </div> -->
 
-		<?php if ( has_nav_menu( 'top' ) ) : ?>
-			<div class="navigation-top">
-				<div class="wrap">
-					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
-			</div><!-- .navigation-top -->
-		<?php endif; ?>
+    <div class="intro">
+        <div class="hello">Photographer</div>
+        <h1 class="photograph">Ekaterina<br/> Kireeva</h1>
+        <div class="who-creates">Life | Landscapes | Love</div>
+    </div>
 
-	</header><!-- #masthead -->
+</section>
 
-	<?php
-	// If a regular post or page, and not the front page, show the featured image.
-	if ( has_post_thumbnail() && ( is_single() || ( is_page() && ! twentyseventeen_is_frontpage() ) ) ) :
-		echo '<div class="single-featured-image-header">';
-		the_post_thumbnail( 'twentyseventeen-featured-image' );
-		echo '</div><!-- .single-featured-image-header -->';
-	endif;
-	?>
+<!-- Home end -->
 
-	<div class="site-content-contain">
-		<div id="content" class="site-content">
+<!-- Navigation start -->
+
+<header class="header">
+    <div class="header__inner js-header">
+        <nav class="navbar navbar-custom" role="navigation">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#home">Ekaterina <span class="color-red">Kireeva</span></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="custom-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="portfolio.html" class="dropdown-toggle">Портфолио</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Love Story</a></li>
+                                <li><a href="#">Свадьбы</a></li>
+                                <li><a href="#">Путешествия</a></li>
+                                <li><a href="#">Семейное</a></li>
+                                <li><a href="#">Праздники</a></li>
+                                <li><a href="#">Фотосессии</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- .container -->
+
+        </nav>
+    </div>
+
+</header>
+
+<!-- Navigation end -->
