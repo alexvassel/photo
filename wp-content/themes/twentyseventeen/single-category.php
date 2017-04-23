@@ -22,7 +22,7 @@
                 $posts_per_page = -1;
                 $category_id = get_the_ID();
                 $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
-                    'orderby' => 'position', 'order'   => 'ASC', 'meta_key' => 'category', 'meta_value' => $category_id);
+                    'orderby' => 'added', 'order'   => 'DESC', 'meta_key' => 'category', 'meta_value' => $category_id);
                 $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
