@@ -418,8 +418,10 @@ function twentyseventeen_scripts() {
     wp_enqueue_style( 'line-icons', get_theme_file_uri( '/assets/css/vendor/simple-line-icons.css' ), '', array(), 'screen');
     wp_enqueue_style( 'pongstarg', get_theme_file_uri( '/assets/css/vendor/pongstagr.am.css'));
     wp_enqueue_style( 'animate', get_theme_file_uri( '/assets/css/vendor/animate.css'));
-    wp_enqueue_style( 'index', get_theme_file_uri( '/assets/css/index.css'), '', array(), 'screen');
     wp_enqueue_style( 'slideshow', get_theme_file_uri( '/assets/css/slideshow.css'), '', array(), 'screen');
+    wp_enqueue_style( 'portfolio', get_theme_file_uri( '/assets/css/portfolio.css'), '', array(), 'screen');
+    wp_enqueue_style( 'popup', get_theme_file_uri( '/assets/css/vendor/magnific-popup.css'), '', array(), 'screen');
+    wp_enqueue_style( 'index', get_theme_file_uri( '/assets/css/index.css'), '', array(), 'screen');
 
     # Add custom js
     wp_enqueue_script( 'icons-lte-ie7', get_theme_file_uri('/assets/js/icons-lte-ie7.js'), array(), '1.0', false  );
@@ -427,8 +429,10 @@ function twentyseventeen_scripts() {
 
     wp_enqueue_script( 'jquery', get_theme_file_uri('/assets/js/vendor/jquery-1.11.3.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'bootstrap', get_theme_file_uri('/assets/bootstrap/js/bootstrap.min.js'), array(), '1.0', true  );
-    wp_enqueue_script( 'imageloaded', get_theme_file_uri('/assets/js/vendor/imagesloaded.pkgd.js'), array(), '1.0', true  );
+    wp_enqueue_script( 'lazysizes', get_theme_file_uri('/assets/js/vendor/lazysizes.min.js'), array(), '1.0', true  );
+    wp_enqueue_script( 'popup', get_theme_file_uri('/assets/js/vendor/jquery.magnific-popup.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'pongstarg', get_theme_file_uri('/assets/js/vendor/pongstagr.am.js'), array(), '1.0', true  );
+    wp_enqueue_script( 'masonry', get_theme_file_uri('/assets/js/vendor/masonry.pkgd.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/index.js'), array(), '1.0', true  );
 
 

@@ -5,7 +5,6 @@
         $header = $('.js-header'),
         indexPage = false,
         scrollTop = 0,
-        $lazyImage = $('img.lazy'),
         $instagram = $('.js-instagram');
 
     function init(){
@@ -14,9 +13,15 @@
         }
 
         bindEvents();
-        initLazyLoad();
-        resizeMainImage();
+        //resizeMainImage();
         getInstagram();
+        initPopup();
+
+        if ($('.js-portfolio-feed-wrap').length > 0 ){
+            $('.js-portfolio-feed-wrap').masonry({
+                itemSelector: '.js-portfolio-feed'
+            });
+        }
     }
 
     function bindEvents(){
@@ -51,22 +56,18 @@
             }
         });
 
-        $(window).resize(function(){
+        /*$(window).resize(function(){
             resizeMainImage();
-        });
+        });*/
     }
 
-    function initLazyLoad(){
-        if ($lazyImage.length > 0) {
-            $lazyImage.filter(':not(:hidden)').lazyload({
-                effect: 'fadeIn',
-                threshold: 200,
-                skip_invisible: true
-            });
-
-            $lazyImage.filter(':hidden[data-mobile]').attr('width','').attr('height','').show().lazyload({
-                effect: 'fadeIn',
-                data_attribute: 'mobile'
+    function initPopup(){
+        if ($('.js-portfolio-feed a').length > 0) {
+            $('.js-portfolio-feed a').magnificPopup({
+                type:'image',
+                gallery: {
+                    enabled: true
+                }
             });
         }
     }

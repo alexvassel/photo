@@ -20,30 +20,56 @@ $prev = get_field('prev');
                 </div>
             </div>
 
-            <div class="portfolio__nav">
-                <div class="row">
-
-                    <div class="col-sm-6">
-                        <?php if($prev):?>
-                            <a href="<?php echo get_permalink($prev) ?>"><i class="fa fa-angle-left"></i><?php echo ' '.get_the_title($prev); ?></a>
-                        <?php endif;?>
-                    </div>
-
-                    <div class="col-sm-6 text-right">
-<?php if($next):?>
-                        <a href="<?php echo get_permalink($next) ?>"><?php echo get_the_title($next).' ' ?><i class="fa fa-angle-right"></i></a>
-<?php endif;?>
-                    </div>
+            <div class="portfolio__nav-block">
+                <div class="portfolio__nav portfolio__nav__left">
+                    <?php if($prev):?>
+                    <a href="<?php echo get_permalink($prev) ?>">
+                        <i class="fa fa-angle-left"></i>
+                        <span class="portfolio__nav__title"><?php echo ' '.get_the_title($prev); ?></span>
+                    </a>
+                    <?php endif;?>
+                </div>
+                <div class="portfolio__nav portfolio__nav__right">
+                    <?php if($next):?>
+                    <a href="<?php echo get_permalink($next) ?>">
+                        <i class="fa fa-angle-right"></i>
+                        <span class="portfolio__nav__title"><?php echo get_the_title($next).' ' ?></span>
+                    </a>
+                    <?php endif;?>
                 </div>
             </div>
-            <div class="portfolio__image-container">
-            <?php
-            $images = get_field('gallery');
-            $loop_counter = 1;
-            foreach( $images as $image ): ?>
-                <div class="portfolio__images-wrap">
-                    <img src="<?php echo $image['url']; ?>" width="800" height="1200" class="portfolio__image"/>
-                </div>
+
+            <div class="portfolio__image-container portfolio__image-container_single">
+               
+
+                <?php
+                $images = get_field('gallery');
+                $loop_counter = 1;
+
+                foreach( $images as $image ): ?>
+                    <?php if($loop_counter == 1):?>
+
+                        <div class="portfolio__images-wrap">
+                            <img src="<?php echo $image['url']; ?>" class="portfolio__image"/>
+                        </div>
+
+                    <?php else :?>
+
+                        <div class="portfolio__images-wrap">
+                            <img
+                                src="<?php echo $image['url']; ?>"
+                                data-sizes="auto"
+                                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-srcset="
+                                    <?php echo $image['url']; ?> 1200w,
+                                    assets/images/portfolio/love_story/valya_vasya/web-14.jpg 700w,
+                                    assets/images/portfolio/love_story/valya_vasya/web-104.jpg 340w
+                                "
+                                class="lazyload" />
+                        </div>
+
+                    <?php endif;?>
+
                 <?php $loop_counter +=1; endforeach; ?>
 
 
@@ -51,4 +77,5 @@ $prev = get_field('prev');
 
         </div><!-- .container -->
     </section>
+
 <?php get_footer(); ?>

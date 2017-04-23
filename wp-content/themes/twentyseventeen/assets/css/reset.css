@@ -1,10 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700,400,300);
 
+html{
+	height: 100%;
+}
+
 body {
 	font: 400 14px/1.6 'Open Sans', 'Arial', serif;
 	color: #666;
 	overflow-x: hidden;
+	height: 100%;
 }
 
 img {
@@ -18,7 +23,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	color: #b54437;
+	color: #000;
 }
 
 li{
@@ -428,6 +433,10 @@ textarea.form-control {
 
 .module-icon {
 	font-size: 32px;
+}
+
+.height-full{
+	height: 100%;
 }
 
 .callout {

@@ -1,67 +1,96 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<div id="preloader" class="js-preloader">
+    <div id="status" class="js-status">
+        <div class="status-mes"></div>
+    </div>
+</div>
 
-<div class="wrap">
-	<?php if ( is_home() && ! is_front_page() ) : ?>
-		<header class="page-header">
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
-		</header>
-	<?php else : ?>
-	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'twentyseventeen' ); ?></h2>
-	</header>
-	<?php endif; ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<section id="portfolio" class="module module-gray">
+		<div class="container">
+			<div class="portfolio-items-container row">
 
-			<?php
-			if ( have_posts() ) :
+            <?php
+                $post_type = 'category';
+                $post_custom_field = 'description';
+                $loop_counter = 1;
+                //Unlimited count of categories
+                $posts_per_page = -1;
+                $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
+                               'orderby' => 'position', 'order'   => 'ASC');
+                $loop = new WP_Query( $args );
 
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+                while ( $loop->have_posts() ) : $loop->the_post();
+                $cover = get_field('cover');
+                $category_id = get_the_ID();
+            ?>
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        <figure>
+                            <img src="<?php echo $cover; ?>" alt="">
+                            <figcaption>
+                                <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
+                                <p><?php echo get_field($post_custom_field); ?></p>
+                                <a href="<?php the_permalink(); ?>">Посмотреть</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                <?php
+                    if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
+                        echo '<div class="clearfix visible-sm-block"></div>';
+                        $loop_counter++;
+                endwhile;
+                ?>
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/post/content', get_post_format() );
+            </div><!-- .projects-container -->
+        </div>
+    </section>
 
-				endwhile;
+    <!-- Callout start -->
 
-				the_posts_pagination( array(
-					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-				) );
+	<section class="callout">
+		<div class="container">
 
-			else :
+			<div class="row">
 
-				get_template_part( 'template-parts/post/content', 'none' );
+				<div class="col-md-8 col-lg-6 col-lg-offset-2">
+					<h2>ПОНРАВИЛИСЬ РАБОТЫ?</h2>
+					<div class="callout-decription">
+						Я всегда рада пофотографировать
+					</div>
+				</div>
 
-			endif;
-			?>
+				<div class="col-md-4 col-lg-2 callout-btn">
+					<a href="contacts.html" class="btn btn-lg btn-block btn-custom-1">Напишите мне</a>
+				</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
 
+	<!-- Callout end -->
+
+	<!-- Instagram start -->
+
+	<section id="instagram" class="module">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="module-header">
+						<h2 class="module-title">Instagram</h2>
+						<div class="module-line"></div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<div class="js-instagram"></div>
+            	<div class="js-instagram-loading"></div>
+            </div>
+
+		</div><!-- .container -->
+	</section>
+
+	<!-- Instagram end -->
+
+	
 <?php get_footer();

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-
     <?php wp_head(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,46 +8,45 @@
     <meta name="author" content="">
 
     <title>Alice Zed | Photographer </title>
+
+    <?php wp_head(); ?>
     
 </head>
 
-<body class="index">
+<body class="<?php if (is_front_page()): ?>index<?php endif;?>">
 
-<div id="preloader" class="js-preloader">
-    <div id="status" class="js-status">
-        <div class="status-mes"></div>
-    </div>
-</div>
+<?php if (is_front_page()): ?>
+    <section id="home" class="module-image height-full">
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span></li>
+            <li><span>Image 02</span></li>
+            <li><span>Image 03</span></li>
+            <li><span>Image 04</span></li>
+            <li><span>Image 05</span></li>
+            <li><span>Image 06</span></li>
+        </ul>
+        <!-- <div class="intro">
+            <div class="hello">Привет, меня зовут Катя, и я</div>
+            <h1 class="photograph">Фотограф</h1>
+            <div class="who-creates">Life | Landscapes | Love</div>
+        </div> -->
 
-<section id="home" class="module-image js-height-full">
-    <ul class="cb-slideshow">
-        <li><span>Image 01</span></li>
-        <li><span>Image 02</span></li>
-        <li><span>Image 03</span></li>
-        <li><span>Image 04</span></li>
-        <li><span>Image 05</span></li>
-        <li><span>Image 06</span></li>
-    </ul>
-    <!-- <div class="intro">
-        <div class="hello">Привет, меня зовут Катя, и я</div>
-        <h1 class="photograph">Фотограф</h1>
-        <div class="who-creates">Life | Landscapes | Love</div>
-    </div> -->
+        <div class="intro">
+            <div class="hello">Photographer</div>
+            <h1 class="photograph">Ekaterina<br/> Kireeva</h1>
+            <div class="who-creates">Life | Landscapes | Love</div>
+        </div>
 
-    <div class="intro">
-        <div class="hello">Photographer</div>
-        <h1 class="photograph">Ekaterina<br/> Kireeva</h1>
-        <div class="who-creates">Life | Landscapes | Love</div>
-    </div>
+    </section>
+<?php endif;?>
 
-</section>
 
 <!-- Home end -->
 
 <!-- Navigation start -->
 
 <header class="header">
-    <div class="header__inner js-header">
+    <div class="header__inner js-header <?php if (!is_front_page()): ?>fixed<?php endif;?>">
         <nav class="navbar navbar-custom" role="navigation">
 
             <div class="container">
@@ -60,12 +58,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#home">Ekaterina <span class="color-red">Kireeva</span></a>
+                    <a class="navbar-brand" href="/">Ekaterina <span class="color-red">Kireeva</span></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="custom-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Главная</a></li>
+                        <li class="active"><a href="/">Главная</a></li>
                         <li class="dropdown">
                             <a href="portfolio.html" class="dropdown-toggle">Портфолио</a>
                             <ul class="dropdown-menu">
