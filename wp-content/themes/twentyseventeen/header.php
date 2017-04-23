@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <title>Alice Zed | Photographer </title>
-
+    
 </head>
 
 <body class="index">
