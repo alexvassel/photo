@@ -1,10 +1,12 @@
-<?php get_header(); ?>
-
-    <div class="subitem__main-image height-full" style="background-image: url('assets/images/portfolio/love_story/valya_vasya/web-07.jpg')">
+<?php get_header(); 
+    $description = get_field('description');
+    $cover = get_field('cover');
+    ?>
+    <div class="subitem__main-image height-full" style="background-image: url('<?php echo $cover; ?>')">
         <div class="subitem__main-image__text">
             <div class="subitem__main-image__text__inner">
-                <h2 class="subitem__main-image__title">Love Story</h2>
-                <div class="subitem__main-image__date">Истории вашего знакомства, ваших отношений, вашей бесконечной любви друг к другу</div>
+                <h2 class="subitem__main-image__title"><?php the_title(); ?></h2>
+                <div class="subitem__main-image__date"><?php echo $description; ?></div>
             </div>
         </div>
     </div>
@@ -28,7 +30,6 @@
                     $description = get_field('description');
 
                     echo '<div class="col-md-4 col-sm-6 portfolio-item">';
-                    $loop_counter++;
                 ?>
 
                     <figure>
@@ -41,7 +42,14 @@
                     </figure>
                 </div>
 
-            <?php endwhile; ?>
+            <?php 
+                if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
+                        echo '<div class="clearfix visible-sm-block"></div>';
+
+                if ($loop_counter % 3 == 0 and $loop_counter != $loop->found_posts)
+                        echo '<div class="clearfix visible-md-block visible-lg-block"></div>';
+                        $loop_counter++;
+            endwhile; ?>
             </div>
         </div>
     </section>

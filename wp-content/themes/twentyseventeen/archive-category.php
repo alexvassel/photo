@@ -41,6 +41,9 @@
                 <?php
                     if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
                         echo '<div class="clearfix visible-sm-block"></div>';
+
+                    if ($loop_counter % 3 == 0 and $loop_counter != $loop->found_posts)
+                        echo '<div class="clearfix visible-md-block visible-lg-block"></div>';
                         $loop_counter++;
                 endwhile;
                 ?>
