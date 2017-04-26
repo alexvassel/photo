@@ -10,11 +10,12 @@ img:not([src]) {
 }
 
 img[data-sizes="auto"] {
-    width: 100%;
+    max-width: 100%;
 }
 
 .portfolio__image{
     display: inline-block;
+    vertical-align: top;
 }
 
 .portfolio__images-wrap{
@@ -22,7 +23,7 @@ img[data-sizes="auto"] {
     display: block;
     margin-bottom: 20px;
 }
-        
+
 .portfolio__nav-block{
 
 }

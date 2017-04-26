@@ -42,7 +42,7 @@
                     </figure>
                 </div>
 
-            <?php 
+            <?php
                 if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
                         echo '<div class="clearfix visible-sm-block"></div>';
 

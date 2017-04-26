@@ -29,7 +29,7 @@
 <!-- Scroll-up -->
 
 <div class="scroll-up js-scroll-up">
-    <a href="#home"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#header"><i class="fa fa-angle-double-up"></i></a>
 </div>
 <?php wp_footer(); ?>
 
