@@ -15,7 +15,7 @@
             <div class="portfolio-items-container row">
 
             <?php
-                $post_type = 'category';
+                $post_type = 'portfolio';
                 $post_custom_field = 'description';
                 $loop_counter = 1;
                 //Unlimited count of categories
