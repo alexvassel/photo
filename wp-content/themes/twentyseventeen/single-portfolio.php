@@ -1,7 +1,8 @@
-<?php get_header(); 
-    $description = get_field('description');
-    $cover = get_field('cover');
-    ?>
+<?php get_header();
+$description = get_field('description');
+$cover = get_field('cover');
+$allImages = [];
+?>
     <div class="subitem__main-image height-full" style="background-image: url('<?php echo $cover; ?>')">
         <div class="subitem__main-image__text">
             <div class="subitem__main-image__text__inner">
@@ -26,33 +27,40 @@
                 $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
-                    $cover = get_field('cover');
-                    $description = get_field('description');
+                $cover = get_field('cover');
+                $description = get_field('description');
 
-                    echo '<div class="col-md-4 col-sm-6 portfolio-item">';
+                echo '<div class="col-md-4 col-sm-6 portfolio-item">';
                 ?>
 
-                    <figure>
-                        <img src="<?php echo $cover; ?>" alt="">
-                        <figcaption>
-                            <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
-                            <p><?php echo $description; ?></p>
-                            <a href="<?php the_permalink(); ?>">Посмотреть</a>
-                        </figcaption>
-                    </figure>
-                </div>
+                <figure>
+                    <img src="<?php echo $cover; ?>" alt="">
+                    <figcaption>
+                        <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
+                        <p><?php echo $description; ?></p>
+                        <a href="<?php the_permalink(); ?>">Посмотреть</a>
+                    </figcaption>
+                </figure>
+            </div>
 
             <?php
-                if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
-                        echo '<div class="clearfix visible-sm-block"></div>';
+            if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
+                echo '<div class="clearfix visible-sm-block"></div>';
 
-                if ($loop_counter % 3 == 0 and $loop_counter != $loop->found_posts)
-                        echo '<div class="clearfix visible-md-block visible-lg-block"></div>';
-                        $loop_counter++;
-            endwhile; ?>
-            </div>
+            if ($loop_counter % 3 == 0 and $loop_counter != $loop->found_posts)
+                echo '<div class="clearfix visible-md-block visible-lg-block"></div>';
+            $loop_counter++;
+            $images = get_field('gallery');
+            foreach( $images as $image ):
+                array_push($allImages, $image);
+            endforeach;
+            endwhile;
+            ?>
+        </div>
         </div>
     </section>
+
+
 
     <section class="module">
         <div class="container">
@@ -66,107 +74,19 @@
             </div>
             <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
 
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <a href="assets/images/portfolio/love_story/valya_vasya/web-62.jpg"><img src="assets/images/portfolio/love_story/valya_vasya/web-62.jpg" alt=""></a>
-                    </figure>
-                </div>
+                <?php shuffle($allImages);
+                $allImages = array_slice($allImages, 0,16);
+                foreach( $allImages as $image ):?>
+                    <div class="portfolio-item portfolio-item-single js-portfolio-feed">
+                        <figure>
+                            <a href="<?php echo $image['url']; ?>">
+                                <img src="<?php echo $image['url']; ?>" alt="">
+                            </a>
+                        </figure>
+                    </div>
+                <?php endforeach; ?>
 
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <a href="assets/images/2.jpg"><img src="assets/images/2.jpg" alt=""></a>
-                    </figure>
-                </div>
 
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/122.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/vert2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <a href="assets/images/vert.jpg"><img src="assets/images/vert.jpg" alt=""></a>
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/portfolio/love_story/valya_vasya/web-62.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/vert.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/vert2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/portfolio/love_story/valya_vasya/web-62.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/vert.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/122.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/vert2.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/portfolio/love_story/valya_vasya/web-62.jpg" alt="">
-                    </figure>
-                </div>
-
-                <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                    <figure>
-                        <img src="assets/images/2.jpg" alt="">
-                    </figure>
-                </div>
             </div>
         </div><!-- .projects-container -->
 
