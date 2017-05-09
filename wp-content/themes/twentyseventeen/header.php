@@ -18,12 +18,16 @@
 <?php if (is_front_page()): ?>
     <section id="home" class="module-image height-full">
         <ul class="cb-slideshow">
-            <li><span>Image 01</span></li>
-            <li><span>Image 02</span></li>
-            <li><span>Image 03</span></li>
-            <li><span>Image 04</span></li>
-            <li><span>Image 05</span></li>
-            <li><span>Image 06</span></li>
+                <?php
+                $post_type = 'slider';
+                $slider_name = 'Main';
+                $posts_per_page = 1;
+                $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page, 'name' => $slider_name);
+                $slider = get_posts($args)[0];
+                $photos = get_field('photos', $slider->ID);
+                foreach( $photos as $photo ): ?>
+                    <li><span style="background-image: url(<?php echo $photo['url']; ?>);"></span></li>
+                <?php endforeach; ?>    
         </ul>
         <!-- <div class="intro">
             <div class="hello">Привет, меня зовут Катя, и я</div>
@@ -45,7 +49,7 @@
 
 <!-- Navigation start -->
 
-<header class="header">
+<header class="header" id="header">
     <div class="header__inner js-header <?php if (!is_front_page()): ?>fixed<?php endif;?>">
         <nav class="navbar navbar-custom" role="navigation">
 

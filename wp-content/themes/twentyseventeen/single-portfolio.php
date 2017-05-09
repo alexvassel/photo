@@ -3,6 +3,13 @@ $description = get_field('description');
 $cover = get_field('cover');
 $allImages = [];
 ?>
+
+    <div id="preloader" class="js-preloader">
+        <div id="status" class="js-status">
+            <div class="status-mes"></div>
+        </div>
+    </div>
+
     <div class="subitem__main-image height-full" style="background-image: url('<?php echo $cover; ?>')">
         <div class="subitem__main-image__text">
             <div class="subitem__main-image__text__inner">
@@ -75,11 +82,11 @@ $allImages = [];
             <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
 
                 <?php shuffle($allImages);
-                $allImages = array_slice($allImages, 0,16);
+                $allImages = array_slice($allImages, 0, 30);
                 foreach( $allImages as $image ):?>
                     <div class="portfolio-item portfolio-item-single js-portfolio-feed">
                         <figure>
-                            <a href="<?php echo $image['url']; ?>">
+                            <a class="js-portfolio-popup" href="<?php echo $image['url']; ?>">
                                 <img src="<?php echo $image['url']; ?>" alt="">
                             </a>
                         </figure>

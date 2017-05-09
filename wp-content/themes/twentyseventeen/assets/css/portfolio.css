@@ -4,7 +4,6 @@
 @import url(portfolio-main.css);
 @import url(footer.css);
 
-
 img:not([src]) {
     visibility: hidden;
 }

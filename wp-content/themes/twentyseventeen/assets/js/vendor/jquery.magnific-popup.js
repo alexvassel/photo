@@ -265,8 +265,6 @@ MagnificPopup.prototype = {
 			_wrapClasses += ' mfp-align-top';
 		}
 
-	
-
 		if(mfp.fixedContentPos) {
 			mfp.wrap.css({
 				overflow: mfp.st.overflowY,
@@ -1514,7 +1512,6 @@ $.magnificPopup.registerModule('zoom', {
 			var paddingTop = parseInt(el.css('padding-top'),10);
 			var paddingBottom = parseInt(el.css('padding-bottom'),10);
 			offset.top -= ( $(window).scrollTop() - paddingTop );
-
 
 			/*
 

@@ -13,20 +13,22 @@
         }
 
         bindEvents();
-        //resizeMainImage();
         getInstagram();
-        initPopup();
-
-        if ($('.js-portfolio-feed-wrap').length > 0 ){
-            $('.js-portfolio-feed-wrap').masonry({
-                itemSelector: '.js-portfolio-feed'
-            });
-        }
     }
 
     function bindEvents(){
         /* preloader  */
         $(window).load(function() {
+            if ($('.js-portfolio-feed-wrap').length > 0 ){
+                setTimeout(function(){
+                    $('.js-portfolio-feed-wrap').masonry({
+                        itemSelector: '.js-portfolio-feed'
+                    });
+                }, 0);
+            }
+
+            initPopup();
+
             if ( $('.js-preloader').length > 0 ) {
                 $('.js-status').fadeOut();
                 $('.js-preloader').delay(350).fadeOut('slow');
@@ -55,18 +57,25 @@
                 stickyNavbar();
             }
         });
-
-        /*$(window).resize(function(){
-            resizeMainImage();
-        });*/
     }
 
     function initPopup(){
-        if ($('.js-portfolio-feed a').length > 0) {
-            $('.js-portfolio-feed a').magnificPopup({
+        if ($('.js-portfolio-popup').length > 0) {
+            $('.js-portfolio-feed-wrap').magnificPopup({
+                delegate: 'a',
                 type:'image',
                 gallery: {
-                    enabled: true
+                    enabled: true,
+                    tCounter: '%curr% из %total%'
+                },
+                callbacks: {
+                    beforeOpen: function() {
+                        console.log($(window).scrollTop());
+                    }
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300 // don't foget to change the duration also in CSS
                 }
             });
         }
@@ -77,12 +86,6 @@
             $header.addClass('fixed');
         } else {
             $header.removeClass('fixed');
-        }
-    }
-
-    function resizeMainImage(){
-        if ($fullHeightBlock.length > 0){
-            $fullHeightBlock.height( $(window).height() );
         }
     }
 

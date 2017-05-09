@@ -430,7 +430,7 @@ function twentyseventeen_scripts() {
     wp_enqueue_script( 'jquery', get_theme_file_uri('/assets/js/vendor/jquery-1.11.3.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'bootstrap', get_theme_file_uri('/assets/bootstrap/js/bootstrap.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'lazysizes', get_theme_file_uri('/assets/js/vendor/lazysizes.min.js'), array(), '1.0', true  );
-    wp_enqueue_script( 'popup', get_theme_file_uri('/assets/js/vendor/jquery.magnific-popup.min.js'), array(), '1.0', true  );
+    wp_enqueue_script( 'popup', get_theme_file_uri('/assets/js/vendor/jquery.magnific-popup.js'), array(), '1.0', true  );
     wp_enqueue_script( 'pongstarg', get_theme_file_uri('/assets/js/vendor/pongstagr.am.js'), array(), '1.0', true  );
     wp_enqueue_script( 'masonry', get_theme_file_uri('/assets/js/vendor/masonry.pkgd.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/index.js'), array(), '1.0', true  );
