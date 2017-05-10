@@ -2,7 +2,6 @@
 get_header(); ?>
 
 <?php
-$post_custom_field = 'cropped_main_page_picture';
 $description = get_field('description');
 $next = get_field('next');
 $prev = get_field('prev');
@@ -40,7 +39,7 @@ $prev = get_field('prev');
             </div>
 
             <div class="portfolio__image-container portfolio__image-container_single">
-               
+
 
                 <?php
                 $images = get_field('gallery');
@@ -50,7 +49,7 @@ $prev = get_field('prev');
                     <?php if($loop_counter == 1):?>
 
                         <div class="portfolio__images-wrap">
-                            <img src="<?php echo $image['url']; ?>" class="portfolio__image"/>
+                            <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?>" class="portfolio__image"/>
                         </div>
 
                     <?php else :?>

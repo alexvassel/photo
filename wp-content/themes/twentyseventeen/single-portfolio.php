@@ -34,14 +34,14 @@ $allImages = [];
                 $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
-                $cover = get_field('cover');
+                $photosession_cover = get_field('cover');
                 $description = get_field('description');
 
                 echo '<div class="col-md-4 col-sm-6 portfolio-item">';
                 ?>
 
                 <figure>
-                    <img src="<?php echo $cover; ?>" alt="">
+                    <img src="<?php echo wp_get_attachment_image_src($photosession_cover, 'p400', false)[0]; ?>" alt="">
                     <figcaption>
                         <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
                         <p><?php echo $description; ?></p>
