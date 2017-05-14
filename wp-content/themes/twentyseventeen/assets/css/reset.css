@@ -20,6 +20,12 @@ img {
 
 a {
 	color: #4283a1;
+	outline: none;
+}
+
+a:focus,
+a:active{
+	outline: none;
 }
 
 a:hover {

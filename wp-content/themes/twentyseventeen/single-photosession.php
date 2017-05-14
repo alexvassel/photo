@@ -49,20 +49,19 @@ $prev = get_field('prev');
                     <?php if($loop_counter == 1):?>
 
                         <div class="portfolio__images-wrap">
-                            <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?>" class="portfolio__image"/>
+                            <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" class="portfolio__image"/>
                         </div>
 
                     <?php else :?>
 
                         <div class="portfolio__images-wrap">
                             <img
-                                src="<?php echo $image['url']; ?>"
-                                data-sizes="auto"
+                                src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>"
                                 srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                 data-srcset="
-                                    <?php echo $image['url']; ?> 1200w,
-                                    assets/images/portfolio/love_story/valya_vasya/web-14.jpg 700w,
-                                    assets/images/portfolio/love_story/valya_vasya/web-104.jpg 340w
+                                    <?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w,
+                                    <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 700w,
+                                    <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 340w
                                 "
                                 class="lazyload" />
                         </div>
