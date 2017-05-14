@@ -64,7 +64,7 @@
 				</div>
 
 				<div class="col-md-4 col-lg-2 callout-btn">
-					<a href="contacts.html" class="btn btn-lg btn-block btn-custom-1">Напишите мне</a>
+					<a href="/contacts/" class="btn btn-lg btn-block btn-custom-1">Напишите мне</a>
 				</div>
 
 			</div><!-- .row -->

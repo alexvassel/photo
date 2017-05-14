@@ -10,7 +10,7 @@
     <title>Alice Zed | Photographer </title>
 
     <?php wp_head(); ?>
-    
+
 </head>
 
 <body class="<?php if (is_front_page()): ?>index<?php endif;?>">
@@ -18,16 +18,16 @@
 <?php if (is_front_page()): ?>
     <section id="home" class="module-image height-full">
         <ul class="cb-slideshow">
-                <?php
-                $post_type = 'slider';
-                $slider_name = 'Main';
-                $posts_per_page = 1;
-                $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page, 'name' => $slider_name);
-                $slider = get_posts($args)[0];
-                $photos = get_field('photos', $slider->ID);
-                foreach( $photos as $photo ): ?>
-                    <li><span style="background-image: url(<?php echo $photo['url']; ?>);"></span></li>
-                <?php endforeach; ?>    
+            <?php
+            $post_type = 'slider';
+            $slider_name = 'Main';
+            $posts_per_page = 1;
+            $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page, 'name' => $slider_name);
+            $slider = get_posts($args)[0];
+            $photos = get_field('photos', $slider->ID);
+            foreach( $photos as $photo ): ?>
+                <li><span style="background-image: url(<?php echo $photo['url']; ?>);"></span></li>
+            <?php endforeach; ?>
         </ul>
         <!-- <div class="intro">
             <div class="hello">Привет, меня зовут Катя, и я</div>
@@ -69,18 +69,30 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="/">Главная</a></li>
                         <li class="dropdown">
-                            <a href="portfolio.html" class="dropdown-toggle">Портфолио</a>
+                            <a href="/portfolio/" class="dropdown-toggle">Портфолио</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Love Story</a></li>
-                                <li><a href="#">Свадьбы</a></li>
-                                <li><a href="#">Путешествия</a></li>
-                                <li><a href="#">Семейное</a></li>
-                                <li><a href="#">Праздники</a></li>
-                                <li><a href="#">Фотосессии</a></li>
+                                <?php
+                                    $menu_post_type = 'portfolio';
+                                    //Unlimited count of categories
+                                    $posts_per_page = -1;
+                                    $args = array( 'post_type' => $menu_post_type, 'posts_per_page' => $posts_per_page,
+                                        'orderby' => 'added', 'order'   => 'DESC');
+                                    $loop = new WP_Query( $args );
+
+                                    while ( $loop->have_posts() ) : $loop->the_post();
+                                        echo '<li><a href="';
+                                        the_permalink();
+                                        echo '">';
+                                        the_title();
+                                        echo '</a></li>';
+                                    endwhile;
+                                // To use wp query mechanics after header
+                                wp_reset_query();
+                                ?>
                             </ul>
                         </li>
-                        <li><a href="blog.html">Блог</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="/blog/">Блог</a></li>
+                        <li><a href="/contacts/">Контакты</a></li>
                     </ul>
                 </div>
 
