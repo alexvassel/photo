@@ -37,11 +37,11 @@
 
         /* scrollToTop */
         $('a[href*=#]').on('click', function(e){
+            e.preventDefault();
             var anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: $(anchor.attr('href')).offset().top
             }, 1000);
-            e.preventDefault();
         });
 
         $(window).on('scroll', function() {
@@ -67,11 +67,6 @@
                 gallery: {
                     enabled: true,
                     tCounter: '%curr% из %total%'
-                },
-                callbacks: {
-                    beforeOpen: function() {
-                        console.log($(window).scrollTop());
-                    }
                 },
                 zoom: {
                     enabled: true,
