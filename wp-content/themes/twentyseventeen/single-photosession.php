@@ -57,13 +57,12 @@ $prev = get_field('prev');
                         <div class="portfolio__images-wrap">
                             <img
                                 src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>"
-                                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                 data-srcset="
                                     <?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w,
                                     <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 700w,
                                     <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 340w
                                 "
-                                class="lazyload" />
+                                class="" />
                         </div>
 
                     <?php endif;?>
