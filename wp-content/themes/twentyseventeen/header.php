@@ -67,8 +67,8 @@
 
                 <div class="collapse navbar-collapse" id="custom-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/">Главная</a></li>
-                        <li class="dropdown">
+                        <li class="<?php if (is_front_page()) echo 'active' ?>"><a href="/">Главная</a></li>
+                        <li class="dropdown <?php if (strpos(get_the_permalink(), 'portfolio') !== false || strpos(get_the_permalink(), 'photosession') !== false) echo 'active' ?>">
                             <a href="/portfolio/" class="dropdown-toggle">Портфолио</a>
                             <ul class="dropdown-menu">
                                 <?php
@@ -91,8 +91,8 @@
                                 ?>
                             </ul>
                         </li>
-                        <li><a href="/blog/">Блог</a></li>
-                        <li><a href="/contacts/">Контакты</a></li>
+                        <li class="<?php if (strpos(get_the_permalink(), 'blog') !== false) echo 'active' ?>"><a href="/blog/">Блог</a></li>
+                        <li class="<?php if (strpos(get_the_permalink(), 'contacts') !== false) echo 'active' ?>"><a href="/contacts/">Контакты</a></li>
                     </ul>
                 </div>
 
