@@ -19,7 +19,7 @@ $cover = get_field('cover');
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="blog-item__text">
-                            <?php the_field('content') ?>
+                            <?php the_content(); ?>
                         </div>
                     </div>
                 </div>
