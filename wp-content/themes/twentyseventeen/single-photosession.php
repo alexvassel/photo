@@ -56,7 +56,7 @@ $prev = get_field('prev');
 
                         <div class="portfolio__images-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>"
                                 data-srcset="
                                     <?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w,
                                     <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 700w,

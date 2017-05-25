@@ -86,7 +86,7 @@ $allImages = [];
                 foreach( $allImages as $image ):?>
                     <div class="portfolio-item portfolio-item-single js-portfolio-feed">
                         <figure>
-                            <a class="js-portfolio-popup" href="<?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?>">
+                            <a class="js-portfolio-popup" href="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>">
                                 <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?>" alt="">
                             </a>
                         </figure>
