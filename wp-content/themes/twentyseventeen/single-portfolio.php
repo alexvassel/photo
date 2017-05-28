@@ -10,7 +10,7 @@ $allImages = [];
         </div>
     </div>
 
-    <div class="subitem__main-image height-full" style="background-image: url('<?php echo $cover; ?>')">
+    <div class="subitem__main-image height-full" style="background-image: url('<?php echo wp_get_attachment_image_src($cover, full, false)[0]; ?>')">
         <div class="subitem__main-image__text">
             <div class="subitem__main-image__text__inner">
                 <h2 class="subitem__main-image__title"><?php the_title(); ?></h2>

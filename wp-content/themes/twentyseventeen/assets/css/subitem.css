@@ -3,7 +3,11 @@
 	padding-bottom: 30px;
 }
 
-.subitem__text{
+.subitem__text p{
+	margin: 0px 16.66666667% 20px;
+}
+
+.subitem__text img{
 	margin-bottom: 20px;
 }
 

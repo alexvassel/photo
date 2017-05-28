@@ -30,7 +30,7 @@
             ?>
                     <div class="col-md-4 col-sm-6 portfolio-item">
                         <figure>
-                            <img src="<?php echo $cover; ?>" alt="">
+                            <img src="<?php echo wp_get_attachment_image_src($cover, 'p800', false)[0]; ?>" alt="">
                             <figcaption>
                                 <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
                                 <p><?php echo get_field($post_custom_field); ?></p>

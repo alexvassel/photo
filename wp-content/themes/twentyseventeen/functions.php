@@ -429,7 +429,7 @@ function twentyseventeen_scripts() {
 
     wp_enqueue_script( 'jquery', get_theme_file_uri('/assets/js/vendor/jquery-1.11.3.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'bootstrap', get_theme_file_uri('/assets/bootstrap/js/bootstrap.min.js'), array(), '1.0', true  );
-    wp_enqueue_script( 'lazysizes', get_theme_file_uri('/assets/js/vendor/lazysizes.min.js'), array(), '1.0', true  );
+    //wp_enqueue_script( 'lazysizes', get_theme_file_uri('/assets/js/vendor/lazysizes.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'popup', get_theme_file_uri('/assets/js/vendor/jquery.magnific-popup.js'), array(), '1.0', true  );
     wp_enqueue_script( 'pongstarg', get_theme_file_uri('/assets/js/vendor/pongstagr.am.js'), array(), '1.0', true  );
     wp_enqueue_script( 'masonry', get_theme_file_uri('/assets/js/vendor/masonry.pkgd.min.js'), array(), '1.0', true  );
@@ -492,13 +492,7 @@ function twentyseventeen_content_image_sizes_attr( $sizes, $size ) {
 	$width = $size[0];
 
 	if ( 740 <= $width ) {
-		$sizes = '(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px';
-	}
-
-	if ( is_active_sidebar( 'sidebar-1' ) || is_archive() || is_search() || is_home() || is_page() ) {
-		if ( ! ( is_page() && 'one-column' === get_theme_mod( 'page_options' ) ) && 767 <= $width ) {
-			 $sizes = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
-		}
+		$sizes = '(max-width: 706px) 96vw, (max-width: 767px) 100vw, (max-width: 960px) 100vw, 1200px';
 	}
 
 	return $sizes;
@@ -536,7 +530,7 @@ add_filter( 'get_header_image_tag', 'twentyseventeen_header_image_tag', 10, 3 );
  */
 function twentyseventeen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	if ( is_archive() || is_search() || is_home() ) {
-		$attr['sizes'] = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
+		$attr['sizes'] = '(max-width: 706px) 96vw, (max-width: 767px) 100vw, (max-width: 960px) 100vw, 1200px';
 	} else {
 		$attr['sizes'] = '100vw';
 	}
@@ -558,6 +552,12 @@ function twentyseventeen_front_page_template( $template ) {
 	return is_home() ? '' : $template;
 }
 add_filter( 'frontpage_template',  'twentyseventeen_front_page_template' );
+
+
+function filter_ptags_on_images($content){
+    return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
 
 /**
  * Implement the Custom Header feature.

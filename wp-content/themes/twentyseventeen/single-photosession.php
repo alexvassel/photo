@@ -7,6 +7,12 @@ $next = get_field('next');
 $prev = get_field('prev');
     ?>
 
+    <div id="preloader" class="js-preloader">
+        <div id="status" class="js-status">
+            <div class="status-mes"></div>
+        </div>
+    </div>
+
     <section id="portfolio" class="module module-gray">
         <div class="container">
             <div class="row">

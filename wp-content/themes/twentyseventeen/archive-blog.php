@@ -35,7 +35,7 @@ get_header(); ?>
                         <div class="col-sm-6 wow fadeInUp">
                             <a href="<?php the_permalink(); ?>" class="blog__item">
                                 <span class="blog__image-wrap">
-                                    <img src="<?php echo $cover; ?>" class="blog__image"/>
+                                    <img src="<?php echo wp_get_attachment_image_src($cover, 'p800', false)[0]; ?>" class="blog__image"/>
                                 </span>
                                 <span class="blog__text">
                                     <span class="blog__title"><?php the_title(); ?></span>
@@ -46,7 +46,6 @@ get_header(); ?>
                                 </span>
                             </a>
                         </div>
-
 
                     <?php
                     if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)

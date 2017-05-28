@@ -1,7 +1,7 @@
 <?php get_header();
 $description = get_field('description');
 $cover = get_field('cover');
-?>    <div class="subitem__main-image height-full" style="background-image: url('<?php echo $cover; ?>')">
+?>    <div class="subitem__main-image height-full" style="background-image: url('<?php echo wp_get_attachment_image_src($cover, full, false)[0]; ?>')">
             <div class="subitem__main-image__text">
                 <div class="subitem__main-image__text__inner">
                     <h2 class="subitem__main-image__title"><?php the_title(); ?></h2>
@@ -14,40 +14,11 @@ $cover = get_field('cover');
 
 
 
-        <div class="container">
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="blog-item__text">
-                            <?php the_field('content') ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-
-                        <div class="blog__image-wrap">
-                            <img src="assets/images/5.jpg" class="blog__image"/>
-                        </div>
-
-                        <div class="blog__image-wrap">
-                            <img src="assets/images/5.jpg" class="blog__image"/>
-                        </div>
-
-                        <div class="blog__image-wrap">
-                            <img src="assets/images/5.jpg" class="blog__image"/>
-                        </div>
-
-                        <div class="blog__image-wrap">
-                            <img src="assets/images/5.jpg" class="blog__image"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="blog-item__text">
-
-                        </div>
+        <div class="container subitem">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="subitem__text">
+                        <?php the_content(); ?>
                     </div>
                 </div>
             </div>

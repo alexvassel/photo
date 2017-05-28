@@ -64,6 +64,7 @@
             $('.js-portfolio-feed-wrap').magnificPopup({
                 delegate: 'a',
                 type:'image',
+                tLoading: 'Загрузка...',
                 gallery: {
                     enabled: true,
                     tCounter: '%curr% из %total%'
@@ -71,6 +72,13 @@
                 zoom: {
                     enabled: true,
                     duration: 300 // don't foget to change the duration also in CSS
+                },
+                image: {
+                    tError: 'Извините, <a href="%url%">изображение</a> не может быть загружено' // Error message when image could not be loaded
+                },
+                ajax: {
+                  settings: null,
+                  tError: 'Извините, <a href="%url%">контент</a> не может быть загружен'
                 }
             });
         }
