@@ -12,8 +12,6 @@ $cover = get_field('cover');
     <!-- Blog start -->
     <section id="blog" class="module-gray">
 
-
-
         <div class="container subitem">
             <div class="row">
                 <div class="col-sm-12">
