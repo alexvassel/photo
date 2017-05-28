@@ -36,12 +36,13 @@ $cover = get_field('cover');
             </div>
             <div class="row blog">
                 <?php
+                $current_item_id = get_the_ID();
                 $post_type = 'blog';
                 $post_custom_field = 'description';
                 //Unlimited count of items
                 $posts_per_page = 3;
                 $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
-                               'orderby' => 'date', 'order'   => 'DESC');
+                               'post__not_in' => array($current_item_id));
                 $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
