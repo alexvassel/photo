@@ -74,7 +74,10 @@
                     duration: 300 // don't foget to change the duration also in CSS
                 },
                 image: {
-                    tError: 'Извините, <a href="%url%">изображение</a> не может быть загружено' // Error message when image could not be loaded
+                    tError: 'Извините, <a href="%url%">изображение</a> не может быть загружено', // Error message when image could not be loaded
+                    titleSrc: function(item) {
+                        return '<a href="' + item.el.attr('data-link') + '">' + item.el.attr('data-title') + '</a>';
+                    }
                 },
                 ajax: {
                   settings: null,

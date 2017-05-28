@@ -250,7 +250,7 @@ img.mfp-img {
   display: block;
   line-height: 0;
   box-sizing: border-box;
-  padding: 20px 0 20px;
+  padding: 40px 0;
   margin: 0 auto; }
 
 /* The shadow behind the image */
@@ -265,9 +265,8 @@ img.mfp-img {
     margin: 0; }
 
 .mfp-bottom-bar {
-  margin-top: -36px;
   position: absolute;
-  top: 100%;
+  bottom: 15px;
   left: 0;
   width: 100%;
   cursor: auto; }
@@ -278,6 +277,10 @@ img.mfp-img {
   color: #F3F3F3;
   word-wrap: break-word;
   padding-right: 36px; }
+
+.mfp-title a:hover{
+  color: #fff;
+}  
 
 .mfp-image-holder .mfp-content {
   max-width: 100%; }

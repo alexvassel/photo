@@ -84,6 +84,7 @@ img[data-sizes="auto"] {
     padding: 15px 40px 15px 20px;
 }
 
+.portfolio__text-container,
 .portfolio__image-container_single{
     padding: 0 60px;
 }

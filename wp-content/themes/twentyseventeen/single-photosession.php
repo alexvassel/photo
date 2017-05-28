@@ -44,9 +44,11 @@ $prev = get_field('prev');
                 </div>
             </div>
 
+            <div class="portfolio__text-container">
+                <?php the_content(); ?>
+            </div>
+
             <div class="portfolio__image-container portfolio__image-container_single">
-
-
                 <?php
                 $images = get_field('gallery');
                 $loop_counter = 1;
