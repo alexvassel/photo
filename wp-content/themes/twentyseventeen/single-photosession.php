@@ -13,7 +13,7 @@ $prev = get_field('prev');
         </div>
     </div>
 
-    <section id="portfolio" class="module module-gray">
+    <section id="portfolio" class="module">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">

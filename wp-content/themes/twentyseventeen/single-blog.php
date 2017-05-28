@@ -10,7 +10,7 @@ $cover = get_field('cover');
             </div>
         </div>
     <!-- Blog start -->
-    <section id="blog" class="module-gray">
+    <section id="blog">
 
         <div class="container subitem">
             <div class="row">
@@ -23,7 +23,7 @@ $cover = get_field('cover');
         </div>
     </section>
 
-    <section id="other" class="module-gray">
+    <section id="other" class="module module-gray">
 
         <div class="container subitem">
             <div class="row">
