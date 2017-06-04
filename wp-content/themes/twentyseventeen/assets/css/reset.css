@@ -20,11 +20,13 @@ img {
 a {
 	color: #4283a1;
 	outline: none;
+	text-decoration: none;
 }
 
 a:focus,
 a:active{
 	outline: none;
+	text-decoration: none;
 }
 
 a:hover {
@@ -89,9 +91,17 @@ h2 {
 	margin: 0 0 30px;
 }
 
+h2 a{
+	color: #222;
+}
+
+h2 a:hover{
+	opacity: 0.8;
+}
+
 h3 {
-	font-size: 18px;
-	letter-spacing: 1px;
+	font-size: 26px;
+	letter-spacing: 1.5px;
 	margin: 0 0 5px;
 }
 
@@ -587,6 +597,10 @@ textarea.form-control {
 	margin: 0;
 	text-align: center;
 	top: 65%;
+}
+
+.wp-video{
+	margin: 0 auto;
 }
 
 /* ---------------------------------------------- /*

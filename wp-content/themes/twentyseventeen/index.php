@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="module-header ">
-                        <h2 class="module-title">Блог</h2>
+                        <h2 class="module-title"><a href="/blog">Блог</a></h2>
                         <div class="module-line"></div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 .subitem{
 	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-bottom: 40px;
 }
 
 .subitem__text p{
@@ -8,7 +8,8 @@
 }
 
 .subitem__text img{
-	margin-bottom: 20px;
+	margin: 10px auto 30px;
+	display: block;
 }
 
 .subitem__main-image{
@@ -34,7 +35,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
-	max-width: 500px;
+	max-width: 570px;
 	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
 }
 

@@ -60,7 +60,7 @@ function twentyseventeen_setup() {
 	add_image_size( 'twentyseventeen-thumbnail-avatar', 100, 100, true );
 
 	// Set the default content width.
-	$GLOBALS['content_width'] = 525;
+	$GLOBALS['content_width'] = 760;
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

@@ -67,8 +67,6 @@ $allImages = [];
         </div>
     </section>
 
-
-
     <section class="module">
         <div class="container">
             <div class="row">
