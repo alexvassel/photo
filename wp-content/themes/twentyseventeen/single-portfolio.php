@@ -24,7 +24,6 @@ $allImages = [];
             <div class="portfolio-items-container row">
                 <?php
                 $post_type = 'photosession';
-                $post_custom_field = 'description';
                 $loop_counter = 1;
                 //Unlimited count of categories
                 $posts_per_page = -1;
@@ -35,7 +34,7 @@ $allImages = [];
 
                 while ( $loop->have_posts() ) : $loop->the_post();
                 $photosession_cover = get_field('cover');
-                $description = get_field('description');
+                $photosession_description = get_field('description');
 
                 echo '<div class="col-md-4 col-sm-6 portfolio-item">';
                 ?>
@@ -44,7 +43,7 @@ $allImages = [];
                     <img src="<?php echo wp_get_attachment_image_src($photosession_cover, 'p400', false)[0]; ?>" alt="">
                     <figcaption>
                         <h3 class="portfolio-item-title"><?php the_title(); ?></h3>
-                        <p><?php echo $description; ?></p>
+                        <p><?php echo $photosession_description; ?></p>
                         <a href="<?php the_permalink(); ?>">Посмотреть</a>
                     </figcaption>
                 </figure>
@@ -59,7 +58,7 @@ $allImages = [];
             $loop_counter++;
             $images = get_field('gallery');
             foreach( $images as $image ):
-                array_push($allImages, $image);
+                array_push($allImages, array($image, get_post()));
             endforeach;
             endwhile;
             ?>
@@ -80,8 +79,13 @@ $allImages = [];
             <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
 
                 <?php shuffle($allImages);
-                $allImages = array_slice($allImages, 0, 30);
-                foreach( $allImages as $image ):?>
+                $count_images = 30;
+                $allImages = array_slice($allImages, 0, $count_images);
+                foreach( $allImages as $post ):?>
+                    <?php
+                    $image = $post[0];
+                    $post = $post[1];
+                    ?>
                     <div class="portfolio-item portfolio-item-single js-portfolio-feed">
                         <figure>
                             <a class="js-portfolio-popup" href="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>" data-title="<?php the_title(); ?>" data-link="<?php the_permalink(); ?>">
