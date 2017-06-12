@@ -26,7 +26,7 @@ get_header(); ?>
                 //Unlimited count of items
                 $posts_per_page = -1;
                 $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
-                               'orderby' => 'date', 'order'   => 'DESC');
+                               'meta_key' => 'date', 'orderby' => 'meta_value_num', 'order' => 'DESC');
                 $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
@@ -39,7 +39,12 @@ get_header(); ?>
                                 </span>
                                 <span class="blog__text">
                                     <span class="blog__title"><?php the_title(); ?></span>
-                                    <span class="blog__date"><?php echo get_field('date'); ?></span>
+                                    <span class="blog__date"><?php
+                                        $date = get_field('date', false, false);
+                                        $date = new DateTime($date);
+                                        echo $date->format('j.m.Y');
+                                        ?>
+                                    </span>
                                     <span class="blog__desc">
                                         <?php echo get_field($post_custom_field); ?>
                                     </span>
