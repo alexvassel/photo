@@ -278,8 +278,11 @@ img.mfp-img {
   word-wrap: break-word;
   padding-right: 36px; }
 
-.mfp-title a:hover{
+.mfp-title a{
   color: #fff;
+}
+.mfp-title a:hover{
+  color: #4283a1;
 }  
 
 .mfp-image-holder .mfp-content {

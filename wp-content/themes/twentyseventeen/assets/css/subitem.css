@@ -35,7 +35,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
-	max-width: 570px;
+	max-width: 90%;
 	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -48,9 +48,17 @@
 
 .subitem__main-image__title{
 	color: #fff;
+	max-width: 570px;
 }
 
 .subitem__main-image__date{
 	font-size: 16px;
 	color: #fff;
+	max-width: 570px;
+}
+
+@media (min-width: 1460px) {
+	.subitem__main-image__date{
+		font-size: 19px;
+	}
 }

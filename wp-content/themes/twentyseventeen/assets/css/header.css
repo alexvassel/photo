@@ -2,7 +2,7 @@
  * Navigation
 /* ---------------------------------------------- */
 
-.index .header{
+.header{
 	height: 50px;
 }
 
@@ -41,6 +41,10 @@
 	color: #222;
 }
 
+.navbar-custom .nav{
+	margin-right: -30px;
+}
+
 .navbar-custom .nav li a:focus{
 	background: none;
 	color: #222;
@@ -49,7 +53,7 @@
 
 .navbar-custom .nav li.active,
 .navbar-custom .nav li a:hover,
-.navbar-custom .navbar-nav > li.active a {
+.navbar-custom .navbar-nav > li.active > a {
 	background: none;
 	outline: 0;
 	color: #4283a1;
@@ -76,6 +80,10 @@
 	padding: 10px 20px;
 }
 
+.navbar-custom .navbar-toggle{
+	margin-right: 5px;
+}
+
 .navbar-custom .navbar-toggle .icon-bar {
 	background: #222;
 }
@@ -88,6 +96,14 @@
 	.nav>li>a{
 		padding-left: 11px;
 		padding-right: 11px;
+	}
+
+	.navbar-custom >.container .navbar-brand{
+		margin-left: 0;
+	}
+
+	.navbar-custom .nav{
+		margin-right: -15px;
 	}
 }
 

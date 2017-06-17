@@ -112,7 +112,7 @@ img[data-sizes="auto"] {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .portfolio-item-single{
         width: 100%;
     }

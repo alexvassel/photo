@@ -95,18 +95,26 @@
                 $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page,
                                'orderby' => 'date', 'order'   => 'DESC');
                 $loop = new WP_Query( $args );
+                $counter = 0;
 
                 while ( $loop->have_posts() ) : $loop->the_post();
                     $cover = get_field('cover');
+                    $counter++;
                     ?>
-                <div class="col-sm-4">
+                <div class="col-md-4 col-sm-6 <?php if ($counter == 3) echo 'visible-md-block visible-lg-block' ?>">
                     <a href="<?php the_permalink();?>" class="blog__item">
                         <span class="blog__image-wrap">
                             <img src="<?php echo wp_get_attachment_image_src($cover, 'p800', false)[0]; ?>" class="blog__image"/>
                         </span>
                         <span class="blog__text">
                             <span class="blog__title"><?php the_title(); ?></span>
-                            <span class="blog__date"><?php echo get_field('date'); ?></span>
+                            <span class="blog__date">
+                                <?php
+                                    $date = get_field('date', false, false);
+                                    $date = new DateTime($date);
+                                    echo $date->format('j.m.Y');
+                                ?>
+                            </span>
                             <span class="blog__desc">
                                 <?php echo get_field($post_custom_field); ?>
                             </span>

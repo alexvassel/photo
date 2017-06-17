@@ -54,7 +54,7 @@ get_header(); ?>
 
                     <?php
                     if ($loop_counter % 2 == 0 and $loop_counter != $loop->found_posts)
-                        echo '<div class="clearfix visible-md-block"></div>';
+                        echo '<div class="clearfix visible-ld-block"></div>';
                     $loop_counter++;
                 endwhile;
                 ?>

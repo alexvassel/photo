@@ -13,7 +13,13 @@ $cover = get_field('cover');
             <div class="subitem__main-image__text">
                 <div class="subitem__main-image__text__inner">
                     <h2 class="subitem__main-image__title"><?php the_title(); ?></h2>
-                    <div class="subitem__main-image__date"><?php echo get_field('date'); ?></div>
+                    <div class="subitem__main-image__date">
+                        <?php
+                            $date = get_field('date', false, false);
+                            $date = new DateTime($date);
+                            echo $date->format('j.m.Y');
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,7 +68,13 @@ $cover = get_field('cover');
                         </span>
                         <span class="blog__text">
                             <span class="blog__title"><?php the_title(); ?></span>
-                            <span class="blog__date"><?php echo get_field('date'); ?></span>
+                            <span class="blog__date">
+                                <?php
+                                    $date = get_field('date', false, false);
+                                    $date = new DateTime($date);
+                                    echo $date->format('j.m.Y');
+                                ?>
+                            </span>
                             <span class="blog__desc">
                                 <?php echo get_field($post_custom_field); ?>
                             </span>
