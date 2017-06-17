@@ -74,6 +74,8 @@ $allImages = [];
                         <div class="module-line"></div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
 
                     <?php shuffle($allImages);
