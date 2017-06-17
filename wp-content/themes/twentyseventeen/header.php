@@ -76,7 +76,7 @@
                                     //Unlimited count of categories
                                     $posts_per_page = -1;
                                     $args = array( 'post_type' => $menu_post_type, 'posts_per_page' => $posts_per_page,
-                                        'orderby' => 'added', 'order'   => 'DESC');
+                                        'orderby' => 'position', 'order'   => 'ASC');
                                     $loop = new WP_Query( $args );
 
                                     while ( $loop->have_posts() ) : $loop->the_post();
