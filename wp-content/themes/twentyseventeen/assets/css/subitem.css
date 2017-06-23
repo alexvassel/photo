@@ -62,3 +62,25 @@
 		font-size: 19px;
 	}
 }
+
+@media (max-width: 992px) {
+    .subitem__text p{
+		margin: 0 10% 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.subitem__text p{
+		margin: 0 0 15px;
+	}
+
+	.subitem__text img{
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width: 480px) {
+	.subitem__main-image__title{
+		margin-bottom: 20px;
+	}
+}

@@ -65,6 +65,7 @@
                 delegate: 'a',
                 type:'image',
                 tLoading: 'Загрузка...',
+                //disableOn: 640,
                 gallery: {
                     enabled: true,
                     tCounter: '%curr% из %total%'
@@ -82,7 +83,8 @@
                 ajax: {
                   settings: null,
                   tError: 'Извините, <a href="%url%">контент</a> не может быть загружен'
-                }
+                },
+                fixedContentPos: true
             });
         }
     }

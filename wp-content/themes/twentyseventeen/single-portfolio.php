@@ -57,9 +57,11 @@ $allImages = [];
                 echo '<div class="clearfix visible-md-block visible-lg-block"></div>';
             $loop_counter++;
             $images = get_field('gallery');
-            foreach( $images as $image ):
-                array_push($allImages, array($image, get_post()));
-            endforeach;
+            if ($images) {
+                foreach( $images as $image ):
+                    array_push($allImages, array($image, get_post()));
+                endforeach;
+            }
             endwhile;
             ?>
         </div>

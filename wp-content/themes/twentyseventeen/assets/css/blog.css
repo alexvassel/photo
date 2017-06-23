@@ -62,3 +62,9 @@
 	display: block;
 	font-size: 14px;
 }
+
+@media (max-width: 767px) {
+	.blog__item{
+		margin-bottom: 15px;
+	}
+}
