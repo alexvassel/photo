@@ -14,6 +14,10 @@
 </head>
 
 <body class="<?php if (is_front_page()): ?>index<?php endif;?>">
+<?php
+global $wp;
+$current_page_url = home_url(add_query_arg(array(),$wp->request));
+?>
 
 <?php if (is_front_page()): ?>
     <section id="home" class="module-image height-full">
@@ -68,7 +72,7 @@
                 <div class="collapse navbar-collapse" id="custom-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="<?php if (is_front_page()) echo 'active' ?>"><a href="/">Главная</a></li>
-                        <li class="dropdown <?php if (strpos(get_the_permalink(), 'portfolio') !== false || strpos(get_the_permalink(), 'photosession') !== false) echo 'active' ?>">
+                        <li class="dropdown <?php if (strpos($current_page_url, 'portfolio') !== false || strpos($current_page_url, 'photosession') !== false) echo 'active' ?>">
                             <a href="/portfolio/" class="dropdown-toggle">Портфолио</a>
                             <ul class="dropdown-menu">
                                 <?php
@@ -76,12 +80,14 @@
                                     //Unlimited count of categories
                                     $posts_per_page = -1;
                                     $args = array( 'post_type' => $menu_post_type, 'posts_per_page' => $posts_per_page,
-                                        'orderby' => 'added', 'order'   => 'DESC');
+                                        'orderby' => 'position', 'order'   => 'ASC');
                                     $loop = new WP_Query( $args );
 
                                     while ( $loop->have_posts() ) : $loop->the_post();
-                                        echo '<li><a href="';
-                                        the_permalink();
+                                        echo '<li class="';
+                                        if (strpos($current_page_url, get_post_field( 'post_name')) !== false) echo 'active';
+                                        echo '"><a href="';
+                                        echo get_the_permalink();
                                         echo '">';
                                         the_title();
                                         echo '</a></li>';
@@ -91,8 +97,8 @@
                                 ?>
                             </ul>
                         </li>
-                        <li class="<?php if (strpos(get_the_permalink(), 'blog') !== false) echo 'active' ?>"><a href="/blog/">Блог</a></li>
-                        <li class="<?php if (strpos(get_the_permalink(), 'contacts') !== false) echo 'active' ?>"><a href="/contacts/">Контакты</a></li>
+                        <li class="<?php if (strpos($current_page_url, 'blog') !== false) echo 'active' ?>"><a href="/blog/">Блог</a></li>
+                        <li class="<?php if (strpos($current_page_url, 'contacts') !== false) echo 'active' ?>"><a href="/contacts/">Контакты</a></li>
                     </ul>
                 </div>
 
