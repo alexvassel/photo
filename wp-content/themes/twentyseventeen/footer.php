@@ -1,5 +1,4 @@
 <!-- Footer start -->
-
 <footer id="footer">
     <div class="container">
         <div class="row">
@@ -7,11 +6,16 @@
             <div class="col-sm-12">
 
                 <ul class="social-links">
-                    <li><a href="https://twitter.com/alicized" target="_blank" class="" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://instagram.com/alicized/" target="_blank" class="" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="https://500px.com/alicized" target="_blank" class="" title="500px"><i class="fa fa-500px"></i></a></li>
-                    <li><a href="https://ru.linkedin.com/pub/екатерина-киреева/82/aa5/a57" target="_blank" class="" data-wow-delay=".3s" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="mailto:es-kireeva@mail.ru?subject=Feedback" target="_blank" class=""><i class="fa fa-envelope"></i></a></li>
+                    <?php
+                        $post_type = 'social_button';
+                        //Unlimited count of items
+                        $posts_per_page = -1;
+                        $args = array( 'post_type' => $post_type, 'posts_per_page' => $posts_per_page);
+                        $loop = new WP_Query( $args );
+                        while ( $loop->have_posts() ) : $loop->the_post();
+                    ?>
+                    <li><a href="<?php echo get_field('href'); ?>" target="_blank" class="" title="<?php echo get_field('title'); ?>"><i class="<?php echo get_field('class'); ?>"></i></a></li>
+                    <?php endwhile;?>
                 </ul>
 
                 <p class="copyright">
