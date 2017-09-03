@@ -43,6 +43,7 @@
     , show_counts:      true
     , profile_bg_img:   null
     , profile_bg_color: "#d9534f"
+    , onLoadDone: null
   }
 
 
@@ -107,7 +108,7 @@
             _thumbnail += ' </div>'
             _thumbnail += '</div>'
 
-        $(options.target).append(_thumbnail)
+          $(options.target).append(_thumbnail);
 
       return
     }
@@ -281,12 +282,13 @@ options.data.comments_count !== 0 && options.data.comments_data !== undefined ?
                 , caption:        b.caption && b.caption.text
                 , username:       b.user.username
                 , timestamp:      created
-                , thumbnail:      b.images.low_resolution.url
+                , thumbnail:      b.images.thumbnail.url
                 , likes_count:    b.likes.count
                 , comments_count: b.comments.count
                 , comments_data:  b.comments.data
                 , link:           b.link
                 , profile_picture:b.user.profile_picture
+                , onLoadDone: b.onLoadDone
               }
           }
 
@@ -329,6 +331,9 @@ options.data.comments_count !== 0 && options.data.comments_data !== undefined ?
         , success  : function(data){
             if(option.opt.show !== 'profile'){
                 media   (data.data, option.opt);
+                if(option.opt.onLoadDone){
+                  option.opt.onLoadDone.call(self, data.data);
+                }
             } else {
                 profile (data.data, option.opt)
             }
@@ -358,7 +363,7 @@ options.data.comments_count !== 0 && options.data.comments_data !== undefined ?
           , opt: options
         })
       break
-
+      
       case 'profile':
         ajaxdata({
             url: apiurl + options.accessId + '?access_token=' + options.accessToken

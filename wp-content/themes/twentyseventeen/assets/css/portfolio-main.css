@@ -20,6 +20,12 @@
 	position: relative;
 }
 
+.portfolio-item_500px h2,
+.portfolio-item_500px small,
+.portfolio-item_500px br {
+	display: none;
+}
+
 .portfolio-item figure {
 	position: relative;
 	float: left;

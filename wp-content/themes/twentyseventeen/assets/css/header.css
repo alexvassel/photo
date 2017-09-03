@@ -53,10 +53,13 @@
 
 .navbar-custom .nav li.active,
 .navbar-custom .nav li a:hover,
-.navbar-custom .navbar-nav > li.active > a {
+.navbar-custom .navbar-nav > li.active > a,
+.navbar-custom .dropdown-menu > .active > a,
+.navbar-custom .dropdown-menu > .active > a:hover,
+.navbar-custom .dropdown-menu > .active > a:focus{
 	background: none;
 	outline: 0;
-	color: #4283a1;
+	color: #4283a1 !important;
 }
 
 .navbar-custom .navbar-brand {

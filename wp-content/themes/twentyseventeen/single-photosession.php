@@ -54,27 +54,16 @@ $prev = get_field('prev');
                 $loop_counter = 1;
 
                 foreach( $images as $image ): ?>
-                    <?php if($loop_counter == 1):?>
-
-                        <div class="portfolio__images-wrap">
-                            <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" class="portfolio__image"/>
-                        </div>
-
-                    <?php else :?>
-
-                        <div class="portfolio__images-wrap">
-                            <img
-                                src="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>"
-                                data-srcset="
-                                    <?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w,
-                                    <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 700w,
-                                    <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 340w
-                                "
-                                class="" />
-                        </div>
-
-                    <?php endif;?>
-
+                    <div class="portfolio__images-wrap">
+                        <img
+                            src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w, <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w, <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 400w" class="" sizes="(min-width: 800px) 67vw, 100vw" />
+                            <!--<picture>
+                                <source media="(min-width: 900px)" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w" sizes="60vw">
+                                <source media="(min-width: 700px)" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w" sizes="100vw">
+                                <source media="(min-width: 900px)" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 340w" sizes="100vw">
+                                <img src="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>" class="" />
+                            </picture>-->
+                    </div>
                 <?php $loop_counter +=1; endforeach; ?>
 
 

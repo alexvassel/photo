@@ -420,6 +420,7 @@ function twentyseventeen_scripts() {
     wp_enqueue_style( 'animate', get_theme_file_uri( '/assets/css/vendor/animate.css'));
     wp_enqueue_style( 'slideshow', get_theme_file_uri( '/assets/css/slideshow.css'), '', array(), 'screen');
     wp_enqueue_style( 'portfolio', get_theme_file_uri( '/assets/css/portfolio.css'), '', array(), 'screen');
+    wp_enqueue_style( 'contacts', get_theme_file_uri( '/assets/css/contacts.css'), '', array(), 'screen');
     wp_enqueue_style( 'popup', get_theme_file_uri( '/assets/css/vendor/magnific-popup.css'), '', array(), 'screen');
     wp_enqueue_style( 'index', get_theme_file_uri( '/assets/css/index.css'), '', array(), 'screen');
 

@@ -13,7 +13,7 @@
         }
 
         bindEvents();
-        getInstagram();
+        //getInstagram();
     }
 
     function bindEvents(){
@@ -97,7 +97,7 @@
         }
     }
 
-    function getInstagram(){
+    /*function getInstagram(){
         if ($instagram.length > 0) {
             $instagram.pongstgrm({
                 accessId: '1750728055',
@@ -106,14 +106,14 @@
                 show: 'recent',
                 effects: '',
                 buttontext: 'Загрузить еще',
-                column: 'col-xs-6 col-sm-3 col-md-3 col-lg-3',
+                column: 'pongstagrm__thumbnail js-instagram-item',
                 comments: false,
                 likes: false,
                 timestamp: false,
-                count: 16
+                count: 16,
             });
         }
-    }
+    }*/
 
     init();
 

@@ -24,7 +24,7 @@ get_header(); ?>
                         <h2 class="module-title"><? the_title() ?></h2>
                         <div class="module-date"><?php echo get_field('phone'); ?></div>
                         <div class="module-line"></div>
-                        <ul class="social-links">
+                        <ul class="social-links dark">
                             <?php
                             $post_type = 'social_button';
                             //Unlimited count of items

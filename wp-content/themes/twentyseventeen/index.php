@@ -130,9 +130,44 @@
 
     <!-- Blog end -->
 
+    <section id="feed500px" class="module">
+        <div class="container">
+            <?php
+                include_once(ABSPATH.WPINC.'/rss.php'); // path to include script
+                $feed = fetch_rss('https://500px.com/alicized/rss'); // specify feed url
+                $items = array_slice($feed->items, 0, 20); // specify first and last item
+            ?>
+
+            <?php if (!empty($items)) : ?>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="module-header">
+                            <h2 class="module-title"><a href="https://500px.com/alicized" target="_blank">500px feed</a></h2>
+                            <div class="module-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
+                        <?php foreach ($items as $item) : ?>
+
+                            <div class="portfolio-item portfolio-item_500px portfolio-item-single js-portfolio-feed">
+                                <figure>
+                                    <?php echo $item['description']; ?>
+                                </figure>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </section>
+
 	<!-- Instagram start -->
 
-	<section id="instagram" class="module">
+	<!--<section id="instagram" class="module">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
@@ -147,8 +182,8 @@
             	<div class="js-instagram-loading"></div>
             </div>
 
-		</div><!-- .container -->
-	</section>
+		</div>
+	</section>-->
 
 	<!-- Instagram end -->
 
