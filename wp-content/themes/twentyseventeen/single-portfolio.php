@@ -81,7 +81,7 @@ $allImages = [];
                 <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
 
                     <?php shuffle($allImages);
-                    $count_images = 100;
+                    $count_images = 60;
                     $allImages = array_slice($allImages, 0, $count_images);
                     foreach( $allImages as $post ):?>
                         <?php
