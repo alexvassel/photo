@@ -44,49 +44,6 @@ function twentyseventeen_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
-
-
-	// Set the default content width.
-	$GLOBALS['content_width'] = 760;
-
-	// This theme uses wp_nav_menu() in two locations.
-	register_nav_menus( array(
-		'top'    => __( 'Top Menu', 'twentyseventeen' ),
-		'social' => __( 'Social Links Menu', 'twentyseventeen' ),
-	) );
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'audio',
-	) );
-
-	// Add theme support for Custom Logo.
-	add_theme_support( 'custom-logo', array(
-		'width'       => 250,
-		'height'      => 250,
-		'flex-width'  => true,
-	) );
 }
 add_action( 'after_setup_theme', 'twentyseventeen_setup' );
 
@@ -112,9 +69,6 @@ function twentyseventeen_scripts() {
     # Add custom CSS
     wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ), '', array(), 'screen');
     wp_enqueue_style( 'font-awesome', get_theme_file_uri( '/assets/css/font-awesome.min.css' ), '', array(), 'screen');
-    wp_enqueue_style( 'line-icons', get_theme_file_uri( '/assets/css/vendor/simple-line-icons.css' ), '', array(), 'screen');
-    wp_enqueue_style( 'pongstarg', get_theme_file_uri( '/assets/css/vendor/pongstagr.am.css'));
-    wp_enqueue_style( 'animate', get_theme_file_uri( '/assets/css/vendor/animate.css'));
     wp_enqueue_style( 'slideshow', get_theme_file_uri( '/assets/css/slideshow.css'), '', array(), 'screen');
     wp_enqueue_style( 'portfolio', get_theme_file_uri( '/assets/css/portfolio.css'), '', array(), 'screen');
     wp_enqueue_style( 'contacts', get_theme_file_uri( '/assets/css/contacts.css'), '', array(), 'screen');
@@ -122,7 +76,7 @@ function twentyseventeen_scripts() {
     wp_enqueue_style( 'index', get_theme_file_uri( '/assets/css/index.css'), '', array(), 'screen');
 
     # Add custom js
-    wp_enqueue_script( 'jquery', get_theme_file_uri('/assets/js/vendor/jquery-1.11.3.min.js'), array(), '1.0', true  );
+
     wp_enqueue_script( 'bootstrap', get_theme_file_uri('/assets/bootstrap/js/bootstrap.min.js'), array(), '1.0', true  );
     wp_enqueue_script( 'popup', get_theme_file_uri('/assets/js/vendor/jquery.magnific-popup.js'), array(), '1.0', true  );
     wp_enqueue_script( 'pongstarg', get_theme_file_uri('/assets/js/vendor/pongstagr.am.js'), array(), '1.0', true  );
@@ -130,7 +84,18 @@ function twentyseventeen_scripts() {
     wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/index.js'), array(), '1.0', true  );
 
 }
+
 add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
+
+
+function dequeue_jquery_migrate( &$scripts){
+	if(!is_admin()){
+		$scripts->remove( 'jquery');
+		$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.11.3' );
+	}
+}
+
+add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
