@@ -217,34 +217,33 @@ add_filter('the_content', 'filter_ptags_on_images');
 function add_responsive_class($content){
 
         $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-        $document = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $document->loadHTML(utf8_decode($content));
+        if($content != ''){
+	        $document = new DOMDocument();
+	        libxml_use_internal_errors(true);
+	        $document->loadHTML(utf8_decode($content));
 
-        $imgs = $document->getElementsByTagName('img');
-        $loop_counter = 1;
+	        $imgs = $document->getElementsByTagName('img');
+	        $loop_counter = 1;
 
-        foreach ($imgs as $img) {
-        	if ($loop_counter > 5){           
-	            $img->setAttribute('class','js-load-image');
+	        foreach ($imgs as $img) {
+	        	if ($loop_counter > 5){           
+		            $img->setAttribute('class', 'js-load-blog-image');
 
-	            $img->setAttribute('data-src', $img->getAttribute('src'));
-	            $img->removeAttribute('src');
-	            
-	            $img->setAttribute('data-srcset', $img->getAttribute('srcset'));
-	            $img->removeAttribute('srcset');
+		            $img->setAttribute('data-src', $img->getAttribute('src'));
+		            $img->removeAttribute('src');
+
+		            $img->setAttribute('data-srcset', $img->getAttribute('srcset'));
+		            $img->removeAttribute('srcset');
+		        }
+
+	            $loop_counter +=1;
 	        }
 
-	        if ($loop_counter % 5 == 0){
-	        	echo 'BINGO!';
-	        }
 
-            $loop_counter +=1;
+	        $html = $document->saveHTML();
+	        return $html;   
         }
-
-
-        $html = $document->saveHTML();
-        return $html;   
+        
 }
 
 add_filter('the_content', 'add_responsive_class');
