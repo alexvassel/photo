@@ -43,7 +43,7 @@ get_header(); ?>
 
             </div><!-- .row -->
 
-            <div class="row">
+            <div class="row contacts__wrap">
                 <div class="col-sm-4">
                     <?php $image = get_field('image'); ?>
                     <img src="<?php echo wp_get_attachment_image_src($image, 'p800', false)[0]; ?>" class="contacts__image"/>

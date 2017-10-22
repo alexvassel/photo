@@ -20,6 +20,13 @@
     margin-bottom: 20px;
 }
 
+.contacts__wrap{
+	color: #666;
+	background: #fff;
+	border-bottom: 1px solid #d4d4d4;
+	padding: 20px 5px;
+}
+
 .contacts__image{
 	margin-bottom: 15px;
 }
