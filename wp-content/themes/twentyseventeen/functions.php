@@ -227,8 +227,10 @@ function add_responsive_class($content){
         foreach ($imgs as $img) {
         	if ($loop_counter > 5){           
 	            $img->setAttribute('class','js-load-image');
+
 	            $img->setAttribute('data-src', $img->getAttribute('src'));
 	            $img->removeAttribute('src');
+	            
 	            $img->setAttribute('data-srcset', $img->getAttribute('srcset'));
 	            $img->removeAttribute('srcset');
 	        }
