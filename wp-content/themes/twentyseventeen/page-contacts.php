@@ -45,10 +45,8 @@ get_header(); ?>
 
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="portfolio__images-wrap">
-                        <?php $image = get_field('image'); ?>
-                        <img src="<?php echo wp_get_attachment_image_src($image, 'p800', false)[0]; ?>" width="800" height="1200" class="portfolio__image"/>
-                    </div>
+                    <?php $image = get_field('image'); ?>
+                    <img src="<?php echo wp_get_attachment_image_src($image, 'p800', false)[0]; ?>" class="contacts__image"/>
                 </div>
                 <div class="col-sm-8">
                     <? the_content(); ?>

@@ -52,7 +52,6 @@
             </div><!-- .projects-container -->
         </div>
     </section>
-    <!--         wp_rss('https://500px.com/alicized/rss', 30);-->
 
     <section id="feed500px" class="module">
         <div class="container">
@@ -88,60 +87,5 @@
 
         </div>
     </section>
-
-
-    <!--<section class="module">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="module-header ">
-                        <h2 class="module-title">Feed</h2>
-                        <div class="module-line"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="portfolio-item-single_wrap js-portfolio-feed-wrap">
-
-                    <?php shuffle($allImages);
-                    $count_images = 40;
-                    $allImages = array_slice($allImages, 0, $count_images);
-                    foreach( $allImages as $post ):?>
-                        <?php
-                        $image = $post[0];
-                        $post = $post[1];
-                        ?>
-                        <div class="portfolio-item portfolio-item-single js-portfolio-feed">
-                            <figure>
-                                <a class="js-portfolio-popup" href="<?php echo wp_get_attachment_image_src($image['id'], 'h800', false)[0]; ?>" data-title="<?php the_title(); ?>" data-link="<?php the_permalink(); ?>">
-                                    <img src="<?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?>" alt="">
-                                </a>  
-                            </figure>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div><
-
-    </section>-->
-
-
-    <!--<section id="instagram" class="module">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="module-header">
-                        <h2 class="module-title">Instagram</h2>
-                        <div class="module-line"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <div class="js-instagram"></div>
-                <div class="js-instagram-loading"></div>
-            </div>
-
-        </div>
-    </section>-->
 
 <?php get_footer();

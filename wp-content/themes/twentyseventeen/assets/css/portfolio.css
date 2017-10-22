@@ -4,17 +4,13 @@
 @import url(portfolio-main.css);
 @import url(footer.css);
 
-img:not([src]) {
-    visibility: hidden;
-}
 
 img[data-sizes="auto"] {
     max-width: 100%;
 }
 
 .portfolio__image{
-    display: inline-block;
-    vertical-align: top;
+    max-height: 1200px;
 }
 
 .portfolio__images-wrap{

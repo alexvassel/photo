@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <?php wp_head(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Alice Zed | Photographer </title>
 
     <?php wp_head(); ?>
 
 </head>
 
 <body class="<?php if (is_front_page()): ?>index<?php endif;?>">
+
 <?php
 global $wp;
 $current_page_url = home_url(add_query_arg(array(),$wp->request));
@@ -33,11 +31,6 @@ $current_page_url = home_url(add_query_arg(array(),$wp->request));
                 <li><span style="background-image: url(<?php echo $photo['url']; ?>);"></span></li>
             <?php endforeach; ?>
         </ul>
-        <!-- <div class="intro">
-            <div class="hello">Привет, меня зовут Катя, и я</div>
-            <h1 class="photograph">Фотограф</h1>
-            <div class="who-creates">Life | Landscapes | Love</div>
-        </div> -->
 
         <div class="intro">
             <div class="hello">Photographer</div>
@@ -61,7 +54,6 @@ $current_page_url = home_url(add_query_arg(array(),$wp->request));
 
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
-                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
