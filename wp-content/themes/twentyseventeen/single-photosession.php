@@ -2,10 +2,11 @@
 get_header(); ?>
 
 <?php
-$description = get_field('description');
-$next = get_field('next');
-$prev = get_field('prev');
-    ?>
+    $description = get_field('description');
+    $prev = get_adjacent_post(false,'',false);
+    $next = get_adjacent_post(false,'',true);
+
+?>
 
     <section id="portfolio" class="module">
         <div class="container">
@@ -20,22 +21,26 @@ $prev = get_field('prev');
             </div>
 
             <div class="portfolio__nav-block">
-                <div class="portfolio__nav portfolio__nav__left">
-                    <?php if($prev):?>
-                    <a href="<?php echo get_permalink($prev) ?>">
-                        <i class="fa fa-angle-left"></i>
-                        <span class="portfolio__nav__title"><?php echo ' '.get_the_title($prev); ?></span>
-                    </a>
-                    <?php endif;?>
-                </div>
-                <div class="portfolio__nav portfolio__nav__right">
-                    <?php if($next):?>
-                    <a href="<?php echo get_permalink($next) ?>">
-                        <i class="fa fa-angle-right"></i>
-                        <span class="portfolio__nav__title"><?php echo get_the_title($next).' ' ?></span>
-                    </a>
-                    <?php endif;?>
-                </div>
+                <?php if($prev):?>  
+                    <?php $url = get_permalink($prev->ID); ?>          
+                    <div class="portfolio__nav portfolio__nav__left">
+                        <a href="<?php echo $url ?>">
+                            <i class="fa fa-angle-left"></i>
+                            <span class="portfolio__nav__title"><span class="portfolio__nav__title__text"><?php echo $prev->post_title ?></span></span>
+                        </a>
+                    </div>
+                <?php endif;?>
+
+                <?php if($next) :?>     
+                    <?php $url = get_permalink($next->ID); ?>         
+                    <div class="portfolio__nav portfolio__nav__right">
+                        <a href="<?php echo $url ?>">
+                            <span class="portfolio__nav__title"><span class="portfolio__nav__title__text"><?php echo $next->post_title ?></span></span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+
+                <?php endif;?>
             </div>
 
             <div class="portfolio__text-container">
