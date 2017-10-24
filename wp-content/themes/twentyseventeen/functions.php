@@ -62,6 +62,17 @@ remove_action( 'wp_head', 'wlwmanifest_link');
 remove_action( 'wp_head', 'wp_shortlink_wp_head');
 
 
+function ggl_load_styles() {
+
+  if (!is_admin()) {
+    wp_register_style('googleFont', 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Condensed:700,400,300');
+    wp_enqueue_style('ggl', get_stylesheet_uri(), array('googleFont') );
+  }
+}
+
+add_action('wp_enqueue_scripts', 'ggl_load_styles');
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -69,9 +80,6 @@ function twentyseventeen_scripts() {
     # Add custom CSS
     wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ), '', array(), 'screen');
     wp_enqueue_style( 'font-awesome', get_theme_file_uri( '/assets/css/font-awesome.min.css' ), '', array(), 'screen');
-    wp_enqueue_style( 'slideshow', get_theme_file_uri( '/assets/css/slideshow.css'), '', array(), 'screen');
-    wp_enqueue_style( 'portfolio', get_theme_file_uri( '/assets/css/portfolio.css'), '', array(), 'screen');
-    wp_enqueue_style( 'contacts', get_theme_file_uri( '/assets/css/contacts.css'), '', array(), 'screen');
     wp_enqueue_style( 'popup', get_theme_file_uri( '/assets/css/vendor/magnific-popup.css'), '', array(), 'screen');
     wp_enqueue_style( 'index', get_theme_file_uri( '/assets/css/index.css'), '', array(), 'screen');
 

@@ -1,18 +1,6 @@
-@import url(reset.css);
-@import url(header.css);
-@import url(subitem.css);
-@import url(portfolio-main.css);
-@import url(footer.css);
-
-
-img[data-sizes="auto"] {
-    max-width: 100%;
-}
-
 .portfolio__image{
     display: inline-block;
     vertical-align: top;
-    max-height: 1200px;
     min-height: 150px;
 }
 

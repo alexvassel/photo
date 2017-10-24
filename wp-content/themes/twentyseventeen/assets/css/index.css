@@ -6,8 +6,9 @@
 @import url(header.css);
 @import url(blog.css);
 @import url(portfolio-main.css);
-@import url(footer.css);
-
+@import url(portfolio.css);
+@import url(slideshow.css);
+@import url(subitem.css);
 
 /* ---------------------------------------------- /*
  * Home
@@ -47,29 +48,6 @@
 	z-index: 4;
 }
 
-/*
-.hello,
-.who-creates {
-	font-family: 'Open Sans', 'Arial', serif;
-	font-size: 16px;
-	margin: 15px 0;
-	letter-spacing: 0.5px;
-}
-
-.who-creates{
-	text-transform: uppercase;
-}
-
-.photograph{
-	display: inline-block;
-	vertical-align: top;
-	padding: 5px 25px;
-	border: 1px solid #fff;
-	letter-spacing: 7px;
-}
-* */
-
-
 .hello,
 .who-creates {
 	font-family: 'Open Sans', 'Arial', serif;
@@ -95,6 +73,80 @@
 }
 
 /* ---------------------------------------------- /*
+ * Contacts
+/* ---------------------------------------------- */
+
+.social-links.dark a{
+    background: #fff;
+    border-color: transparent;
+    color: rgba(66, 131, 161, 1);
+}
+
+.social-links.dark a:hover {
+    border-color: transparent;
+    color: rgba(0, 0, 0, 1);
+}
+
+.contacts__phone{
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.contacts__wrap{
+	color: #666;
+	background: #fff;
+	border-bottom: 1px solid #d4d4d4;
+	padding: 20px 5px;
+}
+
+.contacts__image{
+	margin-bottom: 15px;
+}
+
+/* ---------------------------------------------- /*
+ * Footer
+/* ---------------------------------------------- */
+
+#footer {
+	background: #222;
+	text-align: center;
+	padding: 40px 0;
+	color: #FFF;
+}
+
+.copyright {
+	margin: 0;
+}
+
+.social-links {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 20px;
+}
+
+.social-links li {
+	display: inline-block;
+	margin: 5px;
+}
+
+.social-links a {
+	width: 36px;
+	height: 36px;
+	display: block;
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid rgba(255, 255, 255, .1);
+	font-size: 14px;
+	color: rgba(255, 255, 255, .2);
+}
+
+.social-links a:hover {
+	border: 1px solid rgba(255, 255, 255, .5);
+	color: rgba(255, 255, 255, .5);
+}
+
+/* ---------------------------------------------- /*
  * Media
 /* ---------------------------------------------- */
 
@@ -104,10 +156,6 @@
 		font-size: 22px;
 		margin: 17px 0;
 	}
-}
-
-@media (max-width: 991px) {
-
 }
 
 @media (max-width: 480px) {
