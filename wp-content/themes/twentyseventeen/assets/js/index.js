@@ -7,6 +7,8 @@
         scrollTop = 0,
         $instagram = $('.js-instagram');
 
+    var $portfolioStopper = $('.js-load-doscroll');
+
     function init(){
         if ($('#home').length > 0) {
             indexPage = true;
@@ -53,7 +55,7 @@
                 $scrollUpButton.fadeOut();
             }
 
-            if ($('.js-load-doscroll').length > 0){
+            if ($portfolioStopper.length > 0){
                 setTimeout(function(){
                     loadPortfolioImages(scrollTop);
                 }, 100);
@@ -110,23 +112,19 @@
     }
 
     function loadPortfolioImages(scrollTop) {
-        var $stopper = $('.js-load-doscroll');
-
-        if($stopper.length > 0){
-            if(scrollTop + $(window).height() > $stopper.offset().top - 800){
-                $('.js-load-image').each(function(i){
-                    if (i < 5){
-                        var srcset = $(this).attr('data-srcset');
-                        var src = $(this).attr('data-src');
-                        if (srcset && srcset !== false) {
-                            $(this)
-                                    .attr('srcset', srcset).removeAttr('data-srcset')
-                                    .attr('src', src).removeAttr('data-src')
-                                    .removeClass('js-load-image').parent().show();
-                        }
+        if(scrollTop + $(window).height() > $portfolioStopper.offset().top - 800){
+            $('.js-load-image').each(function(i){
+                if (i < 5){
+                    var srcset = $(this).attr('data-srcset');
+                    var src = $(this).attr('data-src');
+                    if (src && src !== false) {
+                        $(this)
+                                .attr('srcset', srcset).removeAttr('data-srcset')
+                                .attr('src', src).removeAttr('data-src')
+                                .removeClass('js-load-image').parent().show();
                     }
-                });
-            }
+                }
+            });
         }
     }
 
@@ -139,7 +137,7 @@
                     if (i < 5){
                         var srcset = $(this).attr('data-srcset');
                         var src = $(this).attr('data-src');
-                        if (srcset && srcset !== false) {
+                        if (src && src !== false) {
                             $(this)
                                     .attr('srcset', srcset).removeAttr('data-srcset')
                                     .attr('src', src).removeAttr('data-src')

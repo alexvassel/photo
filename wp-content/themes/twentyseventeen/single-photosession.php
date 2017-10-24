@@ -7,12 +7,6 @@ $next = get_field('next');
 $prev = get_field('prev');
     ?>
 
-    <div id="preloader" class="js-preloader">
-        <div id="status" class="js-status">
-            <div class="status-mes"></div>
-        </div>
-    </div>
-
     <section id="portfolio" class="module">
         <div class="container">
             <div class="row">
@@ -57,11 +51,11 @@ $prev = get_field('prev');
                     <?php if ($loop_counter <= 5):?>
                         <div class="portfolio__images-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w, <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w, <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 400w" class="portfolio__image" />
+                                src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w, <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w, <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 400w" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>" class="portfolio__image" />
                         </div>
                     <?php else :?>
                         <div class="portfolio__images-wrap" style="display: none">
-                            <img data-src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" data-srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w, <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w, <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 400w" class="portfolio__image js-load-image" />
+                            <img data-src="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?>" data-srcset="<?php echo wp_get_attachment_image_src($image['id'], 'p1400', false)[0]; ?> 1200w, <?php echo wp_get_attachment_image_src($image['id'], 'p800', false)[0]; ?> 800w, <?php echo wp_get_attachment_image_src($image['id'], 'p400', false)[0]; ?> 400w" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>" class="portfolio__image js-load-image" />
                         </div>
                     <?php endif;?>
                 <?php $loop_counter +=1; endforeach; ?>

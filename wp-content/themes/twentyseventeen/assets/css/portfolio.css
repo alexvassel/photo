@@ -10,7 +10,10 @@ img[data-sizes="auto"] {
 }
 
 .portfolio__image{
+    display: inline-block;
+    vertical-align: top;
     max-height: 1200px;
+    min-height: 150px;
 }
 
 .portfolio__images-wrap{

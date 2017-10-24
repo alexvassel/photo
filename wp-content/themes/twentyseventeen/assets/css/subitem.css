@@ -10,6 +10,7 @@
 .subitem__text img{
 	margin: 10px auto 30px;
 	display: block;
+	min-height: 150px;
 }
 
 .subitem__main-image{

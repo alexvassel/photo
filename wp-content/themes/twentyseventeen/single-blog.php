@@ -3,11 +3,11 @@ $description = get_field('description');
 $cover = get_field('cover');
 ?>    
     
-<div id="preloader" class="js-preloader">
+<!--<div id="preloader" class="js-preloader">
     <div id="status" class="js-status">
         <div class="status-mes"></div>
     </div>
-</div>
+</div>-->
 
 <div class="subitem__main-image height-full" style="background-image: url('<?php echo wp_get_attachment_image_src($cover, full, false)[0]; ?>')">
             <div class="subitem__main-image__text">
